@@ -1,17 +1,37 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Lottery</title>
-</head>
-<body>
+{% extends "bootstrap/base.html" %}
+
+{% block title %}Lottery{% endblock %}
+
+{% block navbar %}
+<div class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle"
+             data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Flasky</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="/create" methods="POST">Employee Management</a></li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+<div class="container">
     <!--员工列表-->
     {{ employees }}
     <br>
-    <a href="/lottery">随机抽取3位</a> <br>
+    <a href="/lottery">
+        <input class="btn btn-primary" type="submit" value="点击抽奖">
+    </a> <br>
+
     恭喜 <strong>{{winners}}</strong> 中奖了！！！
-</body>
-</html>
+</div>
+{% endblock %}
